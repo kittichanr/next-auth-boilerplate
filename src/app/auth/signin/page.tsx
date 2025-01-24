@@ -37,7 +37,7 @@ export default function SignInPage() {
   return (
     <div className="flex justify-center items-center h-screen">
       <section className="text-center p-8 bg-white rounded shadow-md w-full max-w-md">
-        <h1 className="text-3xl mb-6">Welcome to Booking App</h1>
+        <h1 className="text-3xl mb-6">Welcome to Demo NextAuth</h1>
         <div className="text-xl text-red-500 mb-4">{error}</div>
         <form onSubmit={onSubmit} className="mx-auto max-w-[24rem] text-left">
           <div className="mb-6">
