@@ -7,11 +7,13 @@ import { useRouter } from "next/navigation"
 import { doCredentialLogin } from "@/app/actions"
 import Link from "next/link"
 import SocialLogins from "@/components/auth/SocialLogins"
+import { useSession } from "next-auth/react"
 
 export default function SignInPage() {
   const [passwordShown, setPasswordShown] = useState(false)
   const togglePasswordVisibility = () => setPasswordShown((cur) => !cur)
 
+  const { update } = useSession()
   const router = useRouter()
   const [error, setError] = useState("")
 
@@ -26,6 +28,7 @@ export default function SignInPage() {
         console.error(response.error)
         setError(response.error.message)
       } else {
+        update()
         router.push("/")
       }
     } catch (e) {
